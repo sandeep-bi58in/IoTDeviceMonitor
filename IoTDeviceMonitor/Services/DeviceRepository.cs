@@ -21,7 +21,7 @@ namespace IoTDeviceMonitor.Services
             {
                 if (!File.Exists(FilePath))
                 {
-                    Logger.Log("No existing devices file found – starting with empty list.");
+                    Logger.Log("No existing devices file found, starting with empty list.");
                     return new List<Device>();
                 }
 

@@ -33,7 +33,7 @@ namespace IoTDeviceMonitor.Services
 
         public Device FindById(string id)
         {
-            // Linear search (required)
+            // Linear search
             foreach (var device in devices)
             {
                 if (device.Id.Equals(id, StringComparison.OrdinalIgnoreCase))
@@ -42,17 +42,11 @@ namespace IoTDeviceMonitor.Services
             return null;
         }
 
-        /// <summary>
-        /// Searches for devices whose name contains the given text (case-insensitive).
-        /// Manual implementation without LINQ – shows understanding of loops and string comparison.
-        /// </summary>
-        /// <param name="namePart">Text to search for in device names</param>
-        /// <returns>List of matching devices</returns>
         public List<Device> SearchByName(string namePart)
         {
             if (string.IsNullOrWhiteSpace(namePart))
             {
-                Logger.Log("SearchByName called with empty search term – returning empty list.");
+                Logger.Log("SearchByName called with empty search term returning empty list.");
                 return new List<Device>();
             }
 
@@ -85,7 +79,7 @@ namespace IoTDeviceMonitor.Services
             Logger.Log($"Status updated for {id} -> {newStatus}");
         }
 
-        // Manual Bubble Sort by Name
+        // Bubble Sort by Name
         public void SortByNameManual()
         {
             for (int i = 0; i < devices.Count - 1; i++)
@@ -103,11 +97,10 @@ namespace IoTDeviceMonitor.Services
             Logger.Log("Devices sorted by name (manual bubble sort)");
         }
 
-        // Using built-in sort (for comparison)
         public void SortByNameBuiltIn()
         {
             devices = devices.OrderBy(d => d.Name, StringComparer.OrdinalIgnoreCase).ToList();
-            Logger.Log("Devices sorted by name (built-in)");
+            Logger.Log("Devices sorted by name");
         }
 
         public List<Device> GetAllDevices() => devices;
