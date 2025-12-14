@@ -25,5 +25,3 @@ The application follows **Object-Oriented Programming (OOP)** principles and pro
 - **Logging**: All key actions logged to `logs.txt` with timestamps
 - **Exception Handling**: Graceful handling of invalid input, duplicates, and file errors
 - **Unit Testing**: 4+ comprehensive MSTest unit tests
-
-### Project Structure
